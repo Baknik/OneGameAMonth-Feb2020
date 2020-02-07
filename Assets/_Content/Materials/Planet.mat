@@ -37,35 +37,35 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_187B1EB9:
-        m_Texture: {fileID: 2800000, guid: 049c19d51b729f74f8b10fac8d1a1f47, type: 3}
+        m_Texture: {fileID: 2800000, guid: 29331f689a3c7d94a8dad6b596f88954, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_20C6E654:
-        m_Texture: {fileID: 2800000, guid: d108c3d364ee3a04bb15ea937ebfbc52, type: 3}
+        m_Texture: {fileID: 2800000, guid: d8473cdee2b53b848a17201d4aeb9e5a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_365DCCF4:
-        m_Texture: {fileID: 2800000, guid: 91af108d32f1de644932884d03d4ada0, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_7554AB54:
-        m_Texture: {fileID: 2800000, guid: e1fdd55c5a9295244a2a9b2ec76bee4e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 543fb97f3392a1848b7f8386ad0a9b1b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_97DEC437:
-        m_Texture: {fileID: 2800000, guid: 517afa1ceb6865c488b01cb40ecf069c, type: 3}
+        m_Texture: {fileID: 2800000, guid: fb3fc4f0e4eb1b8479c6cf84323c3d07, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_9FEFE7B7:
-        m_Texture: {fileID: 2800000, guid: ddbea125428e36346bee86172fe587ee, type: 3}
+        m_Texture: {fileID: 2800000, guid: 38b68538d3db2a443ad0221dfbaa6d56, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_A1749966:
-        m_Texture: {fileID: 2800000, guid: 1f2023a024b71e743a3aef74ab9e81fb, type: 3}
+        m_Texture: {fileID: 2800000, guid: 56e5bc490f479c2469d26d84cb59053d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E555E01E:
-        m_Texture: {fileID: 2800000, guid: d4d90e8ff55b21f43ae51ceb5964a32f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8b9cad1763cc8f64aaa78e91759ac1a4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -153,10 +153,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_71D3D8A9: 0.75
+    - Vector1_71D3D8A9: 0.5
     - Vector1_BA6F9817: 0
-    - Vector1_F414F19C: 6
-    - Vector1_F5807B5: 10
+    - Vector1_F414F19C: 4.9
+    - Vector1_F5807B5: 5.97
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
