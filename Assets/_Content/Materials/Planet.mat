@@ -155,7 +155,7 @@ Material:
     m_Floats:
     - Vector1_71D3D8A9: 0.5
     - Vector1_BA6F9817: 0
-    - Vector1_F414F19C: 4.9
+    - Vector1_F414F19C: 5
     - Vector1_F5807B5: 5.97
     - _AORemapMax: 1
     - _AORemapMin: 0

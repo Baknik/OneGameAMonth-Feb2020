@@ -111,7 +111,7 @@ Material:
     m_Floats:
     - Vector1_22A259C9: 0.8
     - Vector1_4165D19A: 1
-    - Vector1_BE508C17: 6000
+    - Vector1_BE508C17: 4000
     - Vector1_CD3E0A1D: 3
     - _AORemapMax: 1
     - _AORemapMin: 0
