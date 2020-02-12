@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Effector : MonoBehaviour
 {
-    [HideInInspector]
+    [Header("Runtime")]
     public List<Effect> Effects;
 }

@@ -1,0 +1,50 @@
+{
+    "name": "Input Actions",
+    "maps": [
+        {
+            "name": "Play",
+            "id": "9004a5bc-16fb-441b-ae2d-988e4ac35c3e",
+            "actions": [
+                {
+                    "name": "Select",
+                    "type": "Button",
+                    "id": "d72c7d70-575c-4dfd-8338-da7c4e1b4905",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "58670880-37eb-48b9-b15c-ee962d6b9fb5",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Select",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard&Mouse",
+            "bindingGroup": "Keyboard&Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
