@@ -5,7 +5,7 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [Header("Settings")]
-    public float StartHealth;
+    public float MaxHealth;
 
     [Header("Runtime")]
     public float CurrentHealth;
@@ -13,6 +13,6 @@ public class Health : MonoBehaviour
 
     void Start()
     {
-        this.CurrentHealth = this.StartHealth;
+        this.CurrentHealth = this.MaxHealth;
     }
 }

@@ -6,6 +6,9 @@ using UnityEngine;
 public class Selectable : MonoBehaviour
 {
     [Header("Settings")]
+    public string Name;
+    [TextArea]
+    public string Description;
     public int SelectionPriority = 0;
 
     [Header("Runtime")]
