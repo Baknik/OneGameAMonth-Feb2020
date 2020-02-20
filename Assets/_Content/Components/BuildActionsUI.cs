@@ -7,13 +7,16 @@ public class BuildActionsUI : MonoBehaviour
 {
     public ActionButton GunSatButton;
     public Text GunSatCostText;
-    public ActionButton PulseSatButton;
-    public Text PulseSatCostText;
+    public ActionButton ChillSatButton;
+    public Text ChillSatCostText;
     public ActionButton RamSatButton;
     public Text RamSatCostText;
+    public ActionButton LaserSatButton;
+    public Text LaserSatCostText;
 
     [Header("Settings")]
     public FloatReference GunSatBuildCost;
-    public FloatReference PulseSatBuildCost;
+    public FloatReference ChillSatBuildCost;
     public FloatReference RamSatBuildCost;
+    public FloatReference LaserSatBuildCost;
 }

@@ -94,8 +94,9 @@ public class UISystem : ComponentSystem
 
             // Costs
             buildActionsUI.GunSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.GunSatBuildCost.Value))}";
-            buildActionsUI.PulseSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.PulseSatBuildCost.Value))}";
+            buildActionsUI.ChillSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.ChillSatBuildCost.Value))}";
             buildActionsUI.RamSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.RamSatBuildCost.Value))}";
+            buildActionsUI.LaserSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.LaserSatBuildCost.Value))}";
 
             // Build
             string prefabName = null;
@@ -104,15 +105,20 @@ public class UISystem : ComponentSystem
                 prefabName = "GunSatellite";
                 buildActionsUI.GunSatButton.Clicked = false;
             }
-            else if (buildActionsUI.PulseSatButton.Clicked)
+            else if (buildActionsUI.ChillSatButton.Clicked)
             {
-                prefabName = "PulseSatellite";
-                buildActionsUI.PulseSatButton.Clicked = false;
+                prefabName = "ChillSatellite";
+                buildActionsUI.ChillSatButton.Clicked = false;
             }
             else if (buildActionsUI.RamSatButton.Clicked)
             {
                 prefabName = "RamSatellite";
                 buildActionsUI.RamSatButton.Clicked = false;
+            }
+            else if (buildActionsUI.LaserSatButton.Clicked)
+            {
+                prefabName = "LaserSatellite";
+                buildActionsUI.LaserSatButton.Clicked = false;
             }
             if (prefabName != null)
             {

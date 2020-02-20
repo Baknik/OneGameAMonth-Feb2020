@@ -7,4 +7,5 @@ public class Body : MonoBehaviour
     [Header("Settings")]
     public FloatRange SpeedRange;
     public FloatRange MaxHealthRange;
+    public MeshRenderer MeshRenderer;
 }

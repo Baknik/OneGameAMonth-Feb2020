@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2180382818443532941}
   - component: {fileID: 851995187634256959}
   - component: {fileID: 7003917344562537070}
+  - component: {fileID: -8659613978794166742}
   m_Layer: 10
   m_Name: Asteroid
   m_TagString: Untagged
@@ -68,6 +69,7 @@ MonoBehaviour:
   ImpactDamage:
     Amount: 25
     Type: 0
+  DamageResistances: []
   CurrentHealth: 0
   HealthBarSlider: {fileID: 0}
 --- !u!114 &2558052633214569839
@@ -147,6 +149,20 @@ MonoBehaviour:
   MaxHealthRange:
     Min: 20
     Max: 100
+  MeshRenderer: {fileID: 4410965763032168381}
+--- !u!114 &-8659613978794166742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2470648245833799809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7d57fd2d9b1cab4184b1970561f031e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Resistances: []
 --- !u!1 &8268090579313449791
 GameObject:
   m_ObjectHideFlags: 0

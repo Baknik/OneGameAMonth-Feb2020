@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Effector : MonoBehaviour
 {
-    [Header("Runtime")]
-    public List<Effect> Effects;
+    [Header("Settings")]
+    public List<EffectResistance> Resistances;
+
+    public Dictionary<EffectType, List<RuntimeEffect>> Effects = new Dictionary<EffectType, List<RuntimeEffect>>();
 }
