@@ -9,10 +9,16 @@ public class RotatorSystem : ComponentSystem
     {
         float deltaTime = Time.DeltaTime;
 
-        Entities.ForEach((Rotator rotator) =>
+        Entities.ForEach((LocalRotator localRotator) =>
         {
-            Vector3 axis = new Vector3(rotator.Axis.X ? 1f : 0f, rotator.Axis.Y ? 1f : 0f, rotator.Axis.Z ? 1f : 0f);
-            rotator.transform.Rotate(axis, rotator.Speed * deltaTime);
+            Vector3 axis = new Vector3(localRotator.Axis.X ? 1f : 0f, localRotator.Axis.Y ? 1f : 0f, localRotator.Axis.Z ? 1f : 0f);
+            localRotator.transform.Rotate(axis, localRotator.Speed * deltaTime, Space.Self);
+        });
+
+        Entities.ForEach((WorldRotator worldRotator) =>
+        {
+            Vector3 axis = new Vector3(worldRotator.Axis.X ? 1f : 0f, worldRotator.Axis.Y ? 1f : 0f, worldRotator.Axis.Z ? 1f : 0f);
+            worldRotator.transform.RotateAround(worldRotator.Origin, axis, worldRotator.Speed * deltaTime);
         });
     }
 }

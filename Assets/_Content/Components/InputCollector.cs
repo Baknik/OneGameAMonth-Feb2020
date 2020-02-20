@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]
@@ -29,6 +30,9 @@ public class InputCollector : MonoBehaviour
 
     public void OnSelect(InputValue value)
     {
-        this.SelectInput = true;
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            this.SelectInput = true;
+        }
     }
 }

@@ -19,9 +19,7 @@ public class RadialSpawnerSystem : ComponentSystem
                 // Random scale
                 float objectScale = Random.Range(spawner.ScaleRange.Min, spawner.ScaleRange.Max);
                 spawnedObject.transform.localScale = new Vector3(objectScale, objectScale, objectScale);
-
                 
-
                 // Reset timer
                 spawner.NextWaitPeriod = Random.Range(spawner.FrequencyRange.Min, spawner.FrequencyRange.Max);
                 spawner.LastSpawnTime = UnityEngine.Time.time;

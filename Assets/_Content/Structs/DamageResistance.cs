@@ -2,8 +2,9 @@
 using UnityEngine;
 
 [Serializable]
-public struct Damage
+public struct DamageResistance
 {
-    public float Amount;
+    [Range(0f,100f)]
+    public float Percentage;
     public DamageType Type;
 }

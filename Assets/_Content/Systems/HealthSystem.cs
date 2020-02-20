@@ -15,7 +15,11 @@ public class HealthSystem : ComponentSystem
             {
                 GameObject healthBarObject =
                     PrefabFactory.Instance.InstantiatePrefab("HealthBar", new Vector3(0f, 0f, -2.5f), Quaternion.identity, null);
-                healthBarObject.transform.SetParent(health.transform, false);
+                ObjectAttachedUI objectAttachedUI = healthBarObject.GetComponent<ObjectAttachedUI>();
+                if (objectAttachedUI != null)
+                {
+                    objectAttachedUI.Object = health.gameObject.transform;
+                }
                 Slider slider = healthBarObject.GetComponentInChildren<Slider>();
                 if (slider != null)
                 {
@@ -26,20 +30,11 @@ public class HealthSystem : ComponentSystem
             // Intra-health collisions
             while (health.Collisions.Count > 0)
             {
-                Collision collision = health.Collisions.Dequeue();
-                Health otherHealth = collision.gameObject.GetComponent<Health>();
+                CollisionData collision = health.Collisions.Dequeue();
+                Health otherHealth = collision.Other.GetComponent<Health>();
                 if (otherHealth != null)
                 {
-                    health.Damage.Enqueue(new Damage()
-                    {
-                        Amount = otherHealth.MaxHealth,
-                        Type = DamageType.PHYSICAL
-                    });
-                    otherHealth.Damage.Enqueue(new Damage()
-                    {
-                        Amount = health.MaxHealth,
-                        Type = DamageType.PHYSICAL
-                    });
+                    otherHealth.Damage.Enqueue(health.ImpactDamage);
                 }
             }
 
@@ -47,7 +42,16 @@ public class HealthSystem : ComponentSystem
             while (health.Damage.Count > 0)
             {
                 Damage damage = health.Damage.Dequeue();
-                health.CurrentHealth -= damage.Amount;
+                float resistance = 0f;
+                foreach (DamageResistance dr in health.DamageResistances)
+                {
+                    if (dr.Type == damage.Type)
+                    {
+                        resistance = dr.Percentage;
+                        break;
+                    }
+                }
+                health.CurrentHealth -= damage.Amount * (1f - resistance / 100f);
             }
 
             // Death

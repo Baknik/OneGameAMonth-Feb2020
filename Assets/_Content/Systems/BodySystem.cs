@@ -28,7 +28,7 @@ public class BodySystem : ComponentSystem
         {
             // Set max health
             bool raiseCurrentHealth = (health.CurrentHealth == health.MaxHealth);
-            health.MaxHealth = Mathf.Lerp(body.MaxHealthRange.Min, body.MaxHealthRange.Max, Mathf.Clamp(body.transform.localScale.x, 0f, 1f));
+            health.MaxHealth = Mathf.Floor(Mathf.Lerp(body.MaxHealthRange.Min, body.MaxHealthRange.Max, Mathf.Clamp(body.transform.localScale.x, 0f, 1f)));
             if (raiseCurrentHealth)
             {
                 health.CurrentHealth = health.MaxHealth;

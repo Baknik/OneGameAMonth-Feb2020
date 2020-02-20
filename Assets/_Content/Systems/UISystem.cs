@@ -16,13 +16,28 @@ public class UISystem : ComponentSystem
                 selectedObject = selectable;
             }
         });
+        Orbit selectedOrbit = null;
+        Entities.ForEach((Orbit orbit, Selectable selectable) =>
+        {
+            if (selectedObject != null && selectable == selectedObject)
+            {
+                selectedOrbit = orbit;
+            }
+        });
 
         // Title
         if (selectedObject != null)
         {
             Entities.ForEach((UITitle uiTitle, Text text) =>
             {
-                text.text = selectedObject.Name;
+                if (selectedOrbit != null && selectedOrbit.Satellite != null)
+                {
+                    text.text = selectedOrbit.Satellite.Name;
+                }
+                else
+                {
+                    text.text = selectedObject.Name;
+                }
             });
         }
         else
@@ -57,6 +72,79 @@ public class UISystem : ComponentSystem
             });
         }
 
+        // Build actions
+        Entities.ForEach((BuildActionsUI buildActionsUI) =>
+        {
+            // Active
+            if (selectedObject != null)
+            {
+                if (selectedOrbit != null)
+                {
+                    buildActionsUI.gameObject.SetActive(selectedOrbit.Satellite == null);
+                }
+                else
+                {
+                    buildActionsUI.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                buildActionsUI.gameObject.SetActive(false);
+            }
+
+            // Costs
+            buildActionsUI.GunSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.GunSatBuildCost.Value))}";
+            buildActionsUI.PulseSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.PulseSatBuildCost.Value))}";
+            buildActionsUI.RamSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.RamSatBuildCost.Value))}";
+
+            // Build
+            string prefabName = null;
+            if (buildActionsUI.GunSatButton.Clicked)
+            {
+                prefabName = "GunSatellite";
+                buildActionsUI.GunSatButton.Clicked = false;
+            }
+            else if (buildActionsUI.PulseSatButton.Clicked)
+            {
+                prefabName = "PulseSatellite";
+                buildActionsUI.PulseSatButton.Clicked = false;
+            }
+            else if (buildActionsUI.RamSatButton.Clicked)
+            {
+                prefabName = "RamSatellite";
+                buildActionsUI.RamSatButton.Clicked = false;
+            }
+            if (prefabName != null)
+            {
+                GameObject satObject = PrefabFactory.Instance.InstantiatePrefab(prefabName, new Vector3(selectedOrbit.Radius, 0f, 0f), Quaternion.identity, null);
+                Satellite sat = satObject.GetComponent<Satellite>();
+                if (sat != null)
+                {
+                    selectedOrbit.Satellite = sat;
+                }
+            }
+        });
+
+        // Manage actions
+        Entities.ForEach((ManageActionsUI manageActionsUI) =>
+        {
+            if (selectedObject != null)
+            {
+                if (selectedOrbit != null)
+                {
+                    manageActionsUI.gameObject.SetActive(selectedOrbit.Satellite != null);
+                }
+                else
+                {
+                    manageActionsUI.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                manageActionsUI.gameObject.SetActive(false);
+            }
+        });
+
         // Health
         Entities.ForEach((HealthUI healthUI) =>
         {
@@ -76,12 +164,32 @@ public class UISystem : ComponentSystem
 
                     if (healthUI.HealthText != null)
                     {
-                        healthUI.HealthText.text = $"{health.CurrentHealth}/{health.MaxHealth}";
+                        healthUI.HealthText.text =
+                            $"{this.GetFormattedNumberString(Mathf.Floor(health.CurrentHealth))}/{this.GetFormattedNumberString(Mathf.Floor(health.MaxHealth))}";
                     }
 
                     healthUI.gameObject.SetActive(true);
                 });
             }
         });
+
+        // Object attached UI
+        Entities.ForEach((Entity entity, ObjectAttachedUI objectAttachedUI, RectTransform rectTransform) =>
+        {
+            if (objectAttachedUI.Object != null)
+            {
+                rectTransform.position = objectAttachedUI.Object.transform.position + objectAttachedUI.Offset;
+            }
+            else
+            {
+                PostUpdateCommands.DestroyEntity(entity);
+                GameObject.Destroy(objectAttachedUI.gameObject);
+            }
+        });
+    }
+
+    private string GetFormattedNumberString(float number)
+    {
+        return number.ToString("n0");
     }
 }

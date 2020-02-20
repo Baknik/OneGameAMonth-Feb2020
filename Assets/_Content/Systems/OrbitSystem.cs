@@ -7,6 +7,7 @@ public class OrbitSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        // Selection color
         Entities.ForEach((Orbit orbit, MeshRenderer renderer, Selectable selectable) =>
         {
             Color orbitColor = orbit.BaseColor.Value;
@@ -20,6 +21,18 @@ public class OrbitSystem : ComponentSystem
             }
 
             renderer.material.SetColor("_Color", orbitColor);
+        });
+
+        // Orbital speed based on radius
+        Entities.ForEach((Orbit orbit) =>
+        {
+            Entities.ForEach((Satellite satellite, WorldRotator worldRotator) =>
+            {
+                if (orbit.Satellite == satellite)
+                {
+                    worldRotator.Speed = Mathf.Atan(satellite.OrbitingSpeed / orbit.Radius) * Mathf.Rad2Deg;
+                }
+            });
         });
     }
 }

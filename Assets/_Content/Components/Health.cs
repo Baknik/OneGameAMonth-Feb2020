@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     [Header("Settings")]
     public float MaxHealth;
     public bool AlwaysShowHealth;
+    public Damage ImpactDamage;
+    public List<DamageResistance> DamageResistances;
 
     [Header("Runtime")]
     public float CurrentHealth;
@@ -16,7 +18,7 @@ public class Health : MonoBehaviour
     [HideInInspector]
     public Queue<Damage> Damage = new Queue<Damage>();
     [HideInInspector]
-    public Queue<Collision> Collisions = new Queue<Collision>();
+    public Queue<CollisionData> Collisions = new Queue<CollisionData>();
     [HideInInspector]
     public Slider HealthBarSlider;
 
@@ -27,6 +29,18 @@ public class Health : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        this.Collisions.Enqueue(collision);
+        this.Collisions.Enqueue(new CollisionData()
+        {
+            Other = collision.gameObject,
+            Contacts = collision.contacts
+        });
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        this.Collisions.Enqueue(new CollisionData()
+        {
+            Other = other.gameObject
+        });
     }
 }

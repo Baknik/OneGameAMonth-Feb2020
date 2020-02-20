@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotator : MonoBehaviour
+public class Satellite : MonoBehaviour
 {
     [Header("Settings")]
-    public AxisConstraints Axis;
-    public float Speed;
+    public string Name;
+    public float OrbitingSpeed;
 }

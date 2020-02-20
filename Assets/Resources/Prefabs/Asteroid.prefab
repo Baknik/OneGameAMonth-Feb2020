@@ -65,6 +65,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 25
   AlwaysShowHealth: 0
+  ImpactDamage:
+    Amount: 25
+    Type: 0
   CurrentHealth: 0
   HealthBarSlider: {fileID: 0}
 --- !u!114 &2558052633214569839
@@ -124,8 +127,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 8
-  m_CollisionDetection: 0
+  m_Constraints: 120
+  m_CollisionDetection: 1
 --- !u!114 &7003917344562537070
 MonoBehaviour:
   m_ObjectHideFlags: 0
