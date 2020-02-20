@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 502274974485623274}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 4, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 502274974533168865}
   m_Father: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Ram Satellite
-  OrbitingSpeed: 1
+  OrbitingSpeed: 2
 --- !u!114 &502274974485623273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cab61bd90268414b9374b56f49d8b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 200
   AlwaysShowHealth: 0
   ImpactDamage:
     Amount: 20

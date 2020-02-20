@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Gun Satellite
-  OrbitingSpeed: 1
+  OrbitingSpeed: 2
 --- !u!114 &9085343279977104517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,10 +127,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cab61bd90268414b9374b56f49d8b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 200
   AlwaysShowHealth: 0
   ImpactDamage:
-    Amount: 5
+    Amount: 20
     Type: 0
   DamageResistances: []
   CurrentHealth: 0
