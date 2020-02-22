@@ -14,7 +14,7 @@ public class HealthSystem : ComponentSystem
             if (health.HealthBarSlider == null)
             {
                 GameObject healthBarObject =
-                    PrefabFactory.Instance.InstantiatePrefab("HealthBar", new Vector3(0f, 0f, -2.5f), Quaternion.identity, null);
+                    PrefabFactory.Instance.InstantiatePrefab("HealthBar", new Vector3(1000f, 0f, 0f), Quaternion.identity, null);
                 ObjectAttachedUI objectAttachedUI = healthBarObject.GetComponent<ObjectAttachedUI>();
                 if (objectAttachedUI != null)
                 {

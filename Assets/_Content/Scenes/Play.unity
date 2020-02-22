@@ -265,6 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4337c5c49765c9f4b9e6ff85cf02caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 886207}
   Clicked: 0
 --- !u!1 &1639729
 GameObject:
@@ -622,7 +623,7 @@ MonoBehaviour:
   GunSatButton: {fileID: 1130879313}
   GunSatCostText: {fileID: 1547915596}
   ChillSatButton: {fileID: 886210}
-  ChillSatCostText: {fileID: 1547915596}
+  ChillSatCostText: {fileID: 2135002395}
   RamSatButton: {fileID: 662674709}
   RamSatCostText: {fileID: 1959842156}
   LaserSatButton: {fileID: 272686500}
@@ -1447,6 +1448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4337c5c49765c9f4b9e6ff85cf02caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 272686502}
   Clicked: 0
 --- !u!114 &272686501
 MonoBehaviour:
@@ -1662,7 +1664,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 285960089}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 285960091}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &285960089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1711,6 +1724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4337c5c49765c9f4b9e6ff85cf02caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 285960088}
   Clicked: 0
 --- !u!1 &307093738
 GameObject:
@@ -1847,7 +1861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Empty Orbit
-  Description: An empty orbit, ready to accept a sat.
+  Description: An empty orbit, ready to accept a satellite.
   SelectionPriority: 3
   Selected: 0
   Hovering: 0
@@ -2000,7 +2014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Empty Orbit
-  Description: An empty orbit, ready to accept a sat.
+  Description: An empty orbit, ready to accept a satellite.
   SelectionPriority: 4
   Selected: 0
   Hovering: 0
@@ -2153,7 +2167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Empty Orbit
-  Description: An empty orbit, ready to accept a sat.
+  Description: An empty orbit, ready to accept a satellite.
   SelectionPriority: 2
   Selected: 0
   Hovering: 0
@@ -2306,7 +2320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Empty Orbit
-  Description: An empty orbit, ready to accept a sat.
+  Description: An empty orbit, ready to accept a satellite.
   SelectionPriority: 1
   Selected: 0
   Hovering: 0
@@ -2996,6 +3010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4337c5c49765c9f4b9e6ff85cf02caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 662674706}
   Clicked: 0
 --- !u!1 &673094410
 GameObject:
@@ -3194,7 +3209,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 729539335}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 729539337}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &729539335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3243,6 +3269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4337c5c49765c9f4b9e6ff85cf02caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 729539334}
   Clicked: 0
 --- !u!1 &734968743
 GameObject:
@@ -4173,6 +4200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4337c5c49765c9f4b9e6ff85cf02caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 1130879310}
   Clicked: 0
 --- !u!1 &1189949918
 GameObject:
@@ -4707,7 +4735,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 100}
+  m_SizeDelta: {x: 0, y: 130}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1414441259
 MonoBehaviour:
@@ -4845,6 +4873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4337c5c49765c9f4b9e6ff85cf02caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 1432943217}
   Clicked: 0
 --- !u!114 &1432943216
 MonoBehaviour:
@@ -4908,7 +4937,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1432943218}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1432943215}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1432943218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5080,7 +5120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Empty Orbit
-  Description: An empty orbit, ready to accept a sat.
+  Description: An empty orbit, ready to accept a satellite.
   SelectionPriority: 0
   Selected: 0
   Hovering: 0
@@ -5110,6 +5150,8 @@ GameObject:
   - component: {fileID: 1449664564}
   - component: {fileID: 1449664563}
   - component: {fileID: 1449664562}
+  - component: {fileID: 1449664566}
+  - component: {fileID: 1449664565}
   m_Layer: 5
   m_Name: Money Panel
   m_TagString: Untagged
@@ -5193,6 +5235,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1449664560}
   m_CullTransparentMesh: 0
+--- !u!114 &1449664565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449664560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7d7495833204790ba1d3a8755397f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConversionMode: 1
+--- !u!114 &1449664566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449664560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e828e0cf34655dc409152b1b6d251d3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoneyText: {fileID: 673094412}
 --- !u!1 &1457666827
 GameObject:
   m_ObjectHideFlags: 0
@@ -5614,6 +5682,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1713895073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1713895074}
+  - component: {fileID: 1713895075}
+  - component: {fileID: 1713895076}
+  m_Layer: 0
+  m_Name: Money
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1713895074
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713895073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1713895075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713895073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acdb3bd54ebd3f4abdca42ca7b287a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartMoney:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: ce1c13b1e04bc3f4b8d2c0ce9db2f51d, type: 2}
+  CurrentMoney: 0
+--- !u!114 &1713895076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713895073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7d7495833204790ba1d3a8755397f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ConversionMode: 1
 --- !u!1 &1725246171
 GameObject:
   m_ObjectHideFlags: 0
@@ -5751,7 +5881,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1732291586}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1732291588}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1732291586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5800,6 +5941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4337c5c49765c9f4b9e6ff85cf02caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 1732291585}
   Clicked: 0
 --- !u!1 &1743039693
 GameObject:
@@ -5835,8 +5977,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 5, y: -5}
-  m_SizeDelta: {x: 240, y: 180}
+  m_AnchoredPosition: {x: 10, y: -10}
+  m_SizeDelta: {x: 280, y: 220}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1743039695
 MonoBehaviour:
@@ -5869,8 +6011,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: This object is very important. Be sure to take good care of it, otherwise
-    you'll be sorry! Good luck and have fun.
+  m_Text: Bam, bam! Smashes into asteroids in it's path, dealing massive damage to
+    the asteroids but not too itself.
 --- !u!222 &1743039696
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5983,7 +6125,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1772919816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1772919818}
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1772919816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6032,6 +6185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4337c5c49765c9f4b9e6ff85cf02caae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Button: {fileID: 1772919815}
   Clicked: 0
 --- !u!224 &1785091419
 RectTransform:
@@ -7141,7 +7295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Home
-  Description: Your home planet.
+  Description: Your home planet. Protect it!
   SelectionPriority: 100
   Selected: 0
   Hovering: 0

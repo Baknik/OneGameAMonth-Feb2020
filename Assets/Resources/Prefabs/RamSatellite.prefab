@@ -94,6 +94,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Ram Satellite
   OrbitingSpeed: 2
+  Description: Bam, bam! Smashes into asteroids in it's path, dealing massive damage
+    to the asteroids but not too itself.
+  Value: 0
 --- !u!114 &502274974485623273
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -115,6 +115,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Gun Satellite
   OrbitingSpeed: 2
+  Description: Shooty, shooty! Launches missiles at nearby asteroids, doing medium
+    damage.
+  Value: 0
 --- !u!114 &9085343279977104517
 MonoBehaviour:
   m_ObjectHideFlags: 0

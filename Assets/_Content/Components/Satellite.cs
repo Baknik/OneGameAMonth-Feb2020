@@ -7,4 +7,9 @@ public class Satellite : MonoBehaviour
     [Header("Settings")]
     public string Name;
     public float OrbitingSpeed;
+    [TextArea]
+    public string Description;
+
+    [HideInInspector]
+    public float Value;
 }

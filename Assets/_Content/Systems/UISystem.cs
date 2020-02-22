@@ -24,6 +24,11 @@ public class UISystem : ComponentSystem
                 selectedOrbit = orbit;
             }
         });
+        Money money = null;
+        Entities.ForEach((Money m) =>
+        {
+            money = m;
+        });
 
         // Title
         if (selectedObject != null)
@@ -55,7 +60,14 @@ public class UISystem : ComponentSystem
             {
                 if (descriptionUI.DescriptionText != null)
                 {
-                    descriptionUI.DescriptionText.text = selectedObject.Description;
+                    if (selectedOrbit != null && selectedOrbit.Satellite != null)
+                    {
+                        descriptionUI.DescriptionText.text = selectedOrbit.Satellite.Description;
+                    }
+                    else
+                    {
+                        descriptionUI.DescriptionText.text = selectedObject.Description;
+                    }
                     descriptionUI.gameObject.SetActive(true);
                 }
             });
@@ -72,7 +84,39 @@ public class UISystem : ComponentSystem
             });
         }
 
-        // Build actions
+        // Manage actions enabling
+        Entities.ForEach((ManageActionsUI manageActionsUI) =>
+        {
+            if (selectedObject != null)
+            {
+                if (selectedOrbit != null)
+                {
+                    manageActionsUI.gameObject.SetActive(selectedOrbit.Satellite != null);
+                }
+                else
+                {
+                    manageActionsUI.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                manageActionsUI.gameObject.SetActive(false);
+            }
+
+            // Updates
+            Entities.ForEach((Entity satelliteEntity, Satellite sat) =>
+            {
+                if (selectedOrbit != null && sat == selectedOrbit.Satellite)
+                {
+                    manageActionsUI.SellAmountText.text = $"Recieve ${this.GetFormattedNumberString(Mathf.Floor(sat.Value))}";
+                }
+            });
+
+            // Button enabling
+            // TODO
+        });
+
+        // Build actions enabling
         Entities.ForEach((BuildActionsUI buildActionsUI) =>
         {
             // Active
@@ -97,57 +141,83 @@ public class UISystem : ComponentSystem
             buildActionsUI.ChillSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.ChillSatBuildCost.Value))}";
             buildActionsUI.RamSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.RamSatBuildCost.Value))}";
             buildActionsUI.LaserSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.LaserSatBuildCost.Value))}";
+        });
 
+        // Manage actions actions
+        Entities.ForEach((ManageActionsUI manageActionsUI) =>
+        {
+            // Manage
+            if (manageActionsUI.SellButton.Clicked)
+            {
+                Entities.ForEach((Entity satelliteEntity, Satellite sat) =>
+                {
+                    if (sat == selectedOrbit.Satellite)
+                    {
+                        money.CurrentMoney += sat.Value;
+                        selectedOrbit.Satellite = null;
+                        PostUpdateCommands.DestroyEntity(satelliteEntity);
+                        GameObject.Destroy(sat.gameObject);
+                    }
+                });
+                manageActionsUI.SellButton.Clicked = false;
+            }
+        });
+
+        // Build actions actions
+        Entities.ForEach((BuildActionsUI buildActionsUI) =>
+        {
             // Build
             string prefabName = null;
+            float satStartValue = 0f;
             if (buildActionsUI.GunSatButton.Clicked)
             {
-                prefabName = "GunSatellite";
+                if (money.CurrentMoney >= buildActionsUI.GunSatBuildCost.Value)
+                {
+                    prefabName = "GunSatellite";
+                    money.CurrentMoney -= buildActionsUI.GunSatBuildCost.Value;
+                    satStartValue = buildActionsUI.GunSatBuildCost.Value;
+                }
                 buildActionsUI.GunSatButton.Clicked = false;
             }
             else if (buildActionsUI.ChillSatButton.Clicked)
             {
-                prefabName = "ChillSatellite";
+                if (money.CurrentMoney >= buildActionsUI.ChillSatBuildCost.Value)
+                {
+                    prefabName = "ChillSatellite";
+                    money.CurrentMoney -= buildActionsUI.ChillSatBuildCost.Value;
+                    satStartValue = buildActionsUI.ChillSatBuildCost.Value;
+                }
                 buildActionsUI.ChillSatButton.Clicked = false;
             }
             else if (buildActionsUI.RamSatButton.Clicked)
             {
-                prefabName = "RamSatellite";
+                if (money.CurrentMoney >= buildActionsUI.RamSatBuildCost.Value)
+                {
+                    prefabName = "RamSatellite";
+                    money.CurrentMoney -= buildActionsUI.RamSatBuildCost.Value;
+                    satStartValue = buildActionsUI.RamSatBuildCost.Value;
+                }
                 buildActionsUI.RamSatButton.Clicked = false;
             }
             else if (buildActionsUI.LaserSatButton.Clicked)
             {
-                prefabName = "LaserSatellite";
+                if (money.CurrentMoney >= buildActionsUI.LaserSatBuildCost.Value)
+                {
+                    prefabName = "LaserSatellite";
+                    money.CurrentMoney -= buildActionsUI.LaserSatBuildCost.Value;
+                    satStartValue = buildActionsUI.LaserSatBuildCost.Value;
+                }
                 buildActionsUI.LaserSatButton.Clicked = false;
             }
             if (prefabName != null)
             {
-                GameObject satObject = PrefabFactory.Instance.InstantiatePrefab(prefabName, new Vector3(selectedOrbit.Radius, 0f, 0f), Quaternion.identity, null);
+                GameObject satObject = PrefabFactory.Instance.InstantiatePrefab(prefabName, new Vector3(selectedOrbit.Radius, 0f, 0f), Quaternion.Euler(0f, 90f, 0f), null);
                 Satellite sat = satObject.GetComponent<Satellite>();
                 if (sat != null)
                 {
+                    sat.Value = satStartValue;
                     selectedOrbit.Satellite = sat;
                 }
-            }
-        });
-
-        // Manage actions
-        Entities.ForEach((ManageActionsUI manageActionsUI) =>
-        {
-            if (selectedObject != null)
-            {
-                if (selectedOrbit != null)
-                {
-                    manageActionsUI.gameObject.SetActive(selectedOrbit.Satellite != null);
-                }
-                else
-                {
-                    manageActionsUI.gameObject.SetActive(false);
-                }
-            }
-            else
-            {
-                manageActionsUI.gameObject.SetActive(false);
             }
         });
 
@@ -192,7 +262,16 @@ public class UISystem : ComponentSystem
                 GameObject.Destroy(objectAttachedUI.gameObject);
             }
         });
-    }
+
+        // Money
+        if (money != null)
+        {
+            Entities.ForEach((MoneyUI moneyUI) =>
+            {
+                moneyUI.MoneyText.text = $"${this.GetFormattedNumberString(Mathf.Floor(money.CurrentMoney))}";
+            });
+        }
+     }
 
     private string GetFormattedNumberString(float number)
     {
