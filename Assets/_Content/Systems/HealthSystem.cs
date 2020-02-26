@@ -39,6 +39,11 @@ public class HealthSystem : ComponentSystem
             while (health.Collisions.Count > 0)
             {
                 CollisionData collision = health.Collisions.Dequeue();
+
+                // Impact
+                PrefabFactory.Instance.InstantiatePrefab("ImpactVFX", collision.Contacts[0].point, Quaternion.LookRotation(collision.Contacts[0].normal), null);
+
+                // Damage
                 Health otherHealth = collision.Other.GetComponent<Health>();
                 if (otherHealth != null)
                 {

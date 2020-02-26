@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 502274974485623278}
   - component: {fileID: 502274974485623272}
   - component: {fileID: 502274974485623273}
+  - component: {fileID: 4269527652519314982}
   m_Layer: 11
   m_Name: RamSatellite
   m_TagString: Untagged
@@ -75,7 +76,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 502274974485623274}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
@@ -149,6 +150,22 @@ MonoBehaviour:
   CurrentHealth: 0
   HealthBarSlider: {fileID: 0}
   RewardGiven: 0
+--- !u!54 &4269527652519314982
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502274974485623274}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &7315269861934701508
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,12 +39,4 @@ public class Health : MonoBehaviour
             Contacts = collision.contacts
         });
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        this.Collisions.Enqueue(new CollisionData()
-        {
-            Other = other.gameObject
-        });
-    }
 }
