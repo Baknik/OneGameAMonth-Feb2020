@@ -7,6 +7,8 @@ public class SelectionSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         InputCollector input = null;
         Camera camera = null;
 

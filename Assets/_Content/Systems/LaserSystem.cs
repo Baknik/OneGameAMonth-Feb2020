@@ -7,6 +7,8 @@ public class LaserSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         Entities.ForEach((Laser laser) =>
         {
             Enemy closestEnemy = null;
@@ -41,7 +43,7 @@ public class LaserSystem : ComponentSystem
                 if (sightAngle <= 5f)
                 {
                     // Laser length
-                    laser.LineRenderer.SetPosition(1, new Vector3(currentEndPosition.x, (5f * closestEnemyDistance) - 0.5f, currentEndPosition.z));
+                    laser.LineRenderer.SetPosition(1, new Vector3(currentEndPosition.x, currentEndPosition.y, (2.5f * closestEnemyDistance)));
 
                     // Tick
                     if (((Time.ElapsedTime - laser.LastTickTime) >= laser.TickFrequency))
@@ -69,13 +71,13 @@ public class LaserSystem : ComponentSystem
                 }
                 else
                 {
-                    laser.LineRenderer.SetPosition(1, new Vector3(currentEndPosition.x, 0f, currentEndPosition.z));
+                    laser.LineRenderer.SetPosition(1, new Vector3(currentEndPosition.x, currentEndPosition.y, 0f));
                     laser.NumConsecutiveTicks = 0;
                 }
             }
             else
             {
-                laser.LineRenderer.SetPosition(1, new Vector3(currentEndPosition.x, 0f, currentEndPosition.z));
+                laser.LineRenderer.SetPosition(1, new Vector3(currentEndPosition.x, currentEndPosition.y, 0f));
                 laser.NumConsecutiveTicks = 0;
             }
         });

@@ -7,6 +7,8 @@ public class DestroySystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         Entities.ForEach((Entity entity, Destroy destroy) =>
         {
             destroy.TimeAlive += Time.DeltaTime;

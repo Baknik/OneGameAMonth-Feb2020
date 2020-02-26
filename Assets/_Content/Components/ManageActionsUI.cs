@@ -7,10 +7,13 @@ public class ManageActionsUI : MonoBehaviour
 {
     public ActionButton UpgradeButton;
     public Text UpgradeCostText;
-    public ActionButton Mode1Button;
-    public Text Mode1CostText;
-    public ActionButton Mode2Button;
-    public Text Mode2CostText;
+    public ActionButton SlowOrbitSpeedButton;
+    public Text SlowOrbitSpeedCostText;
+    public ActionButton MediumOrbitSpeedButton;
+    public Text MediumOrbitSpeedCostText;
+    public ActionButton FastOrbitSpeedButton;
+    public Text FastOrbitSpeedCostText;
     public ActionButton SellButton;
     public Text SellAmountText;
+    public FloatReference OrbitSpeedChangeCost;
 }

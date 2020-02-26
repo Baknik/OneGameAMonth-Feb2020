@@ -7,6 +7,8 @@ public class EffectsSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         Entities.ForEach((Effector effector) =>
         {
             // Duration

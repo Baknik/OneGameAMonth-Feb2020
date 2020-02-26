@@ -7,6 +7,8 @@ public class AuraSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         Entities.ForEach((Aura aura) =>
         {
             Entities.ForEach((Effector effector) =>

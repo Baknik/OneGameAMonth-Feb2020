@@ -8,6 +8,14 @@ public class HealthSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
+        Money money = null;
+        Entities.ForEach((Money m) =>
+        {
+            money = m;
+        });
+
         Entities.ForEach((Entity entity, Health health) =>
         {
             // Health bar setup
@@ -57,6 +65,14 @@ public class HealthSystem : ComponentSystem
             // Death
             if (health.CurrentHealth <= 0f)
             {
+                // Death money
+                if (!health.RewardGiven)
+                {
+                    float newMoneyValue = money.CurrentMoney + (health.MoneyRewardPerHealth.Value * health.MaxHealth);
+                    money.CurrentMoney = (newMoneyValue <= money.MaxMoney.Value) ? newMoneyValue : money.MaxMoney.Value;
+                    health.RewardGiven = true;
+                }
+
                 PostUpdateCommands.DestroyEntity(entity);
                 GameObject.Destroy(health.gameObject);
             }

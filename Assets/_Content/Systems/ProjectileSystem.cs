@@ -7,6 +7,8 @@ public class ProjectileSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         Entities.ForEach((Entity entity, Projectile projectile) =>
         {
             // Health impact

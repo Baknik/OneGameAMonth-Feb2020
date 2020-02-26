@@ -69,9 +69,14 @@ MonoBehaviour:
   ImpactDamage:
     Amount: 25
     Type: 0
+  MoneyRewardPerHealth:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 48ec2155bf94e484ebf19e8bab2ad37c, type: 2}
   DamageResistances: []
   CurrentHealth: 0
   HealthBarSlider: {fileID: 0}
+  RewardGiven: 0
 --- !u!114 &2558052633214569839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SpeedRange:
     Min: 0.1
-    Max: 0.5
+    Max: 1
   MaxHealthRange:
     Min: 20
     Max: 100

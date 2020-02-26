@@ -41,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_20C6E654:
-        m_Texture: {fileID: 2800000, guid: d8473cdee2b53b848a17201d4aeb9e5a, type: 3}
+        m_Texture: {fileID: 2800000, guid: d108c3d364ee3a04bb15ea937ebfbc52, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_365DCCF4:
@@ -57,15 +57,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_9FEFE7B7:
-        m_Texture: {fileID: 2800000, guid: 38b68538d3db2a443ad0221dfbaa6d56, type: 3}
+        m_Texture: {fileID: 2800000, guid: ddbea125428e36346bee86172fe587ee, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_A1749966:
-        m_Texture: {fileID: 2800000, guid: 56e5bc490f479c2469d26d84cb59053d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1f2023a024b71e743a3aef74ab9e81fb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_E555E01E:
-        m_Texture: {fileID: 2800000, guid: 8b9cad1763cc8f64aaa78e91759ac1a4, type: 3}
+        m_Texture: {fileID: 2800000, guid: d4d90e8ff55b21f43ae51ceb5964a32f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
@@ -291,6 +291,7 @@ Material:
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}

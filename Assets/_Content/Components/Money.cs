@@ -6,6 +6,7 @@ public class Money : MonoBehaviour
 {
     [Header("Settings")]
     public FloatReference StartMoney;
+    public FloatReference MaxMoney;
 
     [HideInInspector]
     public float CurrentMoney;

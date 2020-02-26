@@ -113,11 +113,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa029bdb048d02040bc6c436ecfc123a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Gun Satellite
-  OrbitingSpeed: 2
+  Name: Gun Sat
+  SlowOrbitingSpeed:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 2bbd85a7bf1eb2449948d13730260bd4, type: 2}
+  MediumOrbitingSpeed:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 528e0e3b1592ef04d9bcd687b1179bc9, type: 2}
+  FastOrbitingSpeed:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: ddc16b0dabd07b344b11082519d77dca, type: 2}
+  BaseStats: {fileID: 11400000, guid: b9e12515a2356a8498ea4f4884ff0d6a, type: 2}
+  StatIncreasePerLevel: {fileID: 11400000, guid: 29e719682da872e4abd209a5ac9619bb,
+    type: 2}
+  UpgradeCostPerLevel:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 5ab854df2f36499428a73fd258ddb386, type: 2}
+  MaxLevel:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 1f2096b8bb40efb4b9c2bcc065e278c1, type: 2}
   Description: Shooty, shooty! Launches missiles at nearby asteroids, doing medium
     damage.
   Value: 0
+  Level: 0
+  OrbitingSpeed: 2
+  Stats: {fileID: 0}
 --- !u!114 &9085343279977104517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,11 +158,16 @@ MonoBehaviour:
   MaxHealth: 200
   AlwaysShowHealth: 0
   ImpactDamage:
-    Amount: 20
+    Amount: 5
     Type: 0
+  MoneyRewardPerHealth:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
   DamageResistances: []
   CurrentHealth: 0
   HealthBarSlider: {fileID: 0}
+  RewardGiven: 0
 --- !u!1 &9085343280568194637
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +226,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 6cbb1f7a6f921c743bf5d05237fefb55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -276,7 +306,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 73c176f402d2c2f4d929aa5da7585d17, type: 2}
+  - {fileID: 2100000, guid: 6cbb1f7a6f921c743bf5d05237fefb55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

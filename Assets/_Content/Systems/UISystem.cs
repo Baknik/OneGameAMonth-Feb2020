@@ -8,6 +8,8 @@ public class UISystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         Selectable selectedObject = null;
         Entities.ForEach((Selectable selectable) =>
         {
@@ -37,7 +39,7 @@ public class UISystem : ComponentSystem
             {
                 if (selectedOrbit != null && selectedOrbit.Satellite != null)
                 {
-                    text.text = selectedOrbit.Satellite.Name;
+                    text.text = $"{selectedOrbit.Satellite.Name} Lv {Mathf.FloorToInt(selectedOrbit.Satellite.Level)}";
                 }
                 else
                 {
@@ -103,17 +105,42 @@ public class UISystem : ComponentSystem
                 manageActionsUI.gameObject.SetActive(false);
             }
 
-            // Updates
+            // UI Updates
             Entities.ForEach((Entity satelliteEntity, Satellite sat) =>
             {
                 if (selectedOrbit != null && sat == selectedOrbit.Satellite)
                 {
+                    // Sell price
                     manageActionsUI.SellAmountText.text = $"Recieve ${this.GetFormattedNumberString(Mathf.Floor(sat.Value))}";
+                    manageActionsUI.SellButton.Button.interactable = true;
+
+                    // Upgrade button
+                    if (sat.Level >= sat.MaxLevel.Value)
+                    {
+                        manageActionsUI.UpgradeButton.Button.interactable = false;
+                        manageActionsUI.UpgradeCostText.text = $"(satellite is max level)";
+                    }
+                    else
+                    {
+                        manageActionsUI.UpgradeButton.Button.interactable = true;
+                        manageActionsUI.UpgradeCostText.text =
+                            $"${this.GetFormattedNumberString(Mathf.Floor(sat.UpgradeCostPerLevel.Value * sat.Level))} to upgrade";
+                    }
+
+                    // Orbit speed button enabling
+                    manageActionsUI.SlowOrbitSpeedButton.Button.interactable = (sat.OrbitingSpeed != sat.SlowOrbitingSpeed.Value);
+                    manageActionsUI.MediumOrbitSpeedButton.Button.interactable = (sat.OrbitingSpeed != sat.MediumOrbitingSpeed.Value);
+                    manageActionsUI.FastOrbitSpeedButton.Button.interactable = (sat.OrbitingSpeed != sat.FastOrbitingSpeed.Value);
+
+                    // Orbit speed costs
+                    manageActionsUI.SlowOrbitSpeedCostText.text =
+                        (!manageActionsUI.SlowOrbitSpeedButton.Button.interactable) ? "(current speed)" : $"${this.GetFormattedNumberString(Mathf.Floor(manageActionsUI.OrbitSpeedChangeCost.Value))} to switch";
+                    manageActionsUI.MediumOrbitSpeedCostText.text =
+                        (!manageActionsUI.MediumOrbitSpeedButton.Button.interactable) ? "(current speed)" : $"${this.GetFormattedNumberString(Mathf.Floor(manageActionsUI.OrbitSpeedChangeCost.Value))} to switch";
+                    manageActionsUI.FastOrbitSpeedCostText.text =
+                        (!manageActionsUI.FastOrbitSpeedButton.Button.interactable) ? "(current speed)" : $"${this.GetFormattedNumberString(Mathf.Floor(manageActionsUI.OrbitSpeedChangeCost.Value))} to switch";
                 }
             });
-
-            // Button enabling
-            // TODO
         });
 
         // Build actions enabling
@@ -137,29 +164,77 @@ public class UISystem : ComponentSystem
             }
 
             // Costs
-            buildActionsUI.GunSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.GunSatBuildCost.Value))}";
-            buildActionsUI.ChillSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.ChillSatBuildCost.Value))}";
-            buildActionsUI.RamSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.RamSatBuildCost.Value))}";
-            buildActionsUI.LaserSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.LaserSatBuildCost.Value))}";
+            buildActionsUI.GunSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.GunSatBuildCost.Value))} to build";
+            buildActionsUI.ChillSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.ChillSatBuildCost.Value))} to build";
+            buildActionsUI.RamSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.RamSatBuildCost.Value))} to build";
+            buildActionsUI.LaserSatCostText.text = $"${this.GetFormattedNumberString(Mathf.Floor(buildActionsUI.LaserSatBuildCost.Value))} to build";
         });
 
         // Manage actions actions
         Entities.ForEach((ManageActionsUI manageActionsUI) =>
         {
             // Manage
-            if (manageActionsUI.SellButton.Clicked)
+            if (selectedOrbit != null && selectedOrbit.Satellite != null)
             {
-                Entities.ForEach((Entity satelliteEntity, Satellite sat) =>
+                float orbitSpeed = selectedOrbit.Satellite.OrbitingSpeed;
+                if (manageActionsUI.SlowOrbitSpeedButton.Clicked)
                 {
-                    if (sat == selectedOrbit.Satellite)
+                    manageActionsUI.SlowOrbitSpeedButton.Button.interactable = false;
+                    if (money.CurrentMoney >= manageActionsUI.OrbitSpeedChangeCost.Value)
                     {
-                        money.CurrentMoney += sat.Value;
-                        selectedOrbit.Satellite = null;
-                        PostUpdateCommands.DestroyEntity(satelliteEntity);
-                        GameObject.Destroy(sat.gameObject);
+                        money.CurrentMoney -= manageActionsUI.OrbitSpeedChangeCost.Value;
+                        orbitSpeed = selectedOrbit.Satellite.SlowOrbitingSpeed.Value;
                     }
-                });
-                manageActionsUI.SellButton.Clicked = false;
+                    manageActionsUI.SlowOrbitSpeedButton.Clicked = false;
+                }
+                else if (manageActionsUI.MediumOrbitSpeedButton.Clicked)
+                {
+                    manageActionsUI.MediumOrbitSpeedButton.Button.interactable = false;
+                    if (money.CurrentMoney >= manageActionsUI.OrbitSpeedChangeCost.Value)
+                    {
+                        money.CurrentMoney -= manageActionsUI.OrbitSpeedChangeCost.Value;
+                        orbitSpeed = selectedOrbit.Satellite.MediumOrbitingSpeed.Value;
+                    }
+                    manageActionsUI.MediumOrbitSpeedButton.Clicked = false;
+                }
+                else if (manageActionsUI.FastOrbitSpeedButton.Clicked)
+                {
+                    manageActionsUI.FastOrbitSpeedButton.Button.interactable = false;
+                    if (money.CurrentMoney >= manageActionsUI.OrbitSpeedChangeCost.Value)
+                    {
+                        money.CurrentMoney -= manageActionsUI.OrbitSpeedChangeCost.Value;
+                        orbitSpeed = selectedOrbit.Satellite.FastOrbitingSpeed.Value;
+                    }
+                    manageActionsUI.FastOrbitSpeedButton.Clicked = false;
+                }
+                else if (manageActionsUI.UpgradeButton.Clicked)
+                {
+                    manageActionsUI.UpgradeButton.Button.interactable = false;
+                    float upgradeCost = selectedOrbit.Satellite.UpgradeCostPerLevel.Value * selectedOrbit.Satellite.Level;
+                    if (money.CurrentMoney >= upgradeCost)
+                    {
+                        money.CurrentMoney -= upgradeCost;
+                        selectedOrbit.Satellite.Level++;
+                    }
+                    manageActionsUI.UpgradeButton.Clicked = false;
+                }
+                selectedOrbit.Satellite.OrbitingSpeed = orbitSpeed;
+
+                if (manageActionsUI.SellButton.Clicked)
+                {
+                    manageActionsUI.SellButton.Button.interactable = false;
+                    Entities.ForEach((Entity satelliteEntity, Satellite sat) =>
+                    {
+                        if (sat == selectedOrbit.Satellite)
+                        {
+                            money.CurrentMoney += sat.Value;
+                            selectedOrbit.Satellite = null;
+                            PostUpdateCommands.DestroyEntity(satelliteEntity);
+                            GameObject.Destroy(sat.gameObject);
+                        }
+                    });
+                    manageActionsUI.SellButton.Clicked = false;
+                }
             }
         });
 

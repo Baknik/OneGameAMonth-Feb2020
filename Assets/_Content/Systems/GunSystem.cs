@@ -7,6 +7,8 @@ public class GunSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         Entities.ForEach((Gun gun) =>
         {
             Enemy closestEnemy = null;

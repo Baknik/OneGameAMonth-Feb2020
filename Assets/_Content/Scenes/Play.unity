@@ -1689,7 +1689,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6320754, g: 0.6320754, b: 0.6320754, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -3069,9 +3069,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1f16052dfd5f6f54e94e97ecedd4c86b, type: 3}
+    m_Font: {fileID: 12800000, guid: b51a3e520f9164da198dc59c8acfccd6, type: 3}
     m_FontSize: 50
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 60
@@ -3081,7 +3081,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: $999,999,999
+  m_Text: $9,999,999
 --- !u!222 &673094413
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3103,7 +3103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 1, y: -1}
+  m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
 --- !u!1 &729539331
 GameObject:
@@ -3526,6 +3526,7 @@ GameObject:
   - component: {fileID: 941889097}
   - component: {fileID: 941889098}
   - component: {fileID: 941889099}
+  - component: {fileID: 941889100}
   m_Layer: 0
   m_Name: Asteroid Spawner
   m_TagString: Untagged
@@ -3561,14 +3562,55 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PrefabName: Asteroid
   SpawnRadius: 20
-  ScaleRange:
-    Min: 0.2
+  ScaleRangeTiers:
+  - Min: 0.4
+    Max: 0.5
+  - Min: 0.38
+    Max: 0.55
+  - Min: 0.36
+    Max: 0.6
+  - Min: 0.34
+    Max: 0.65
+  - Min: 0.32
+    Max: 0.7
+  - Min: 0.3
+    Max: 0.75
+  - Min: 0.28
+    Max: 0.8
+  - Min: 0.26
+    Max: 0.85
+  - Min: 0.24
+    Max: 0.9
+  - Min: 0.22
+    Max: 0.95
+  - Min: 0.2
     Max: 1
-  FrequencyRange:
-    Min: 3
+  FrequencyRangeTiers:
+  - Min: 3
     Max: 6
+  - Min: 2.8
+    Max: 5.6
+  - Min: 2.6
+    Max: 5.2
+  - Min: 2.4
+    Max: 4.8
+  - Min: 2.2
+    Max: 4.4
+  - Min: 2
+    Max: 4
+  - Min: 1.8
+    Max: 3.6
+  - Min: 1.6
+    Max: 3.2
+  - Min: 1.4
+    Max: 2.8
+  - Min: 1.2
+    Max: 2.4
+  - Min: 1
+    Max: 2
   LastSpawnTime: 0
   NextWaitPeriod: 0
+  Tier: 0
 --- !u!114 &941889099
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3582,6 +3624,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ConversionMode: 1
+--- !u!114 &941889100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941889096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 42876f8bdfaf22940b3b1bf91d0c333a, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 941889098}
+          m_MethodName: IncreaseTier
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &954534126
 GameObject:
   m_ObjectHideFlags: 0
@@ -5650,6 +5721,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577174959}
   m_CullTransparentMesh: 0
+--- !u!1 &1623934087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1623934089}
+  - component: {fileID: 1623934088}
+  m_Layer: 0
+  m_Name: Timeline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &1623934088
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623934087}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 90e0d8c9052f880409c7218816145c21, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 2030935521526251362, guid: 90e0d8c9052f880409c7218816145c21, type: 2}
+    value: {fileID: 941889100}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &1623934089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623934087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1647828145
 GameObject:
   m_ObjectHideFlags: 0
@@ -5730,6 +5851,10 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: ce1c13b1e04bc3f4b8d2c0ce9db2f51d, type: 2}
+  MaxMoney:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 29d8a6234e3eaef439f8c844656cbc0f, type: 2}
   CurrentMoney: 0
 --- !u!114 &1713895076
 MonoBehaviour:
@@ -6696,12 +6821,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeButton: {fileID: 729539337}
   UpgradeCostText: {fileID: 387226816}
-  Mode1Button: {fileID: 1772919818}
-  Mode1CostText: {fileID: 42217356}
-  Mode2Button: {fileID: 285960091}
-  Mode2CostText: {fileID: 1009555229}
+  SlowOrbitSpeedButton: {fileID: 1772919818}
+  SlowOrbitSpeedCostText: {fileID: 42217356}
+  MediumOrbitSpeedButton: {fileID: 285960091}
+  MediumOrbitSpeedCostText: {fileID: 1009555229}
+  FastOrbitSpeedButton: {fileID: 1432943215}
+  FastOrbitSpeedCostText: {fileID: 1303037871}
   SellButton: {fileID: 1732291588}
   SellAmountText: {fileID: 1016457199}
+  OrbitSpeedChangeCost:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: ad2c58b4c050ae74a94f01ad81a9df20, type: 2}
 --- !u!1 &1910429559
 GameObject:
   m_ObjectHideFlags: 0
@@ -7254,9 +7385,14 @@ MonoBehaviour:
   ImpactDamage:
     Amount: 1000
     Type: 0
+  MoneyRewardPerHealth:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
   DamageResistances: []
   CurrentHealth: 0
   HealthBarSlider: {fileID: 0}
+  RewardGiven: 0
 --- !u!114 &2019061297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7282,6 +7418,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70000e36ab0c7ed4a87dfb685965b141, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlanetTextures:
+  - BaseColor: {fileID: 2800000, guid: d4d90e8ff55b21f43ae51ceb5964a32f, type: 3}
+    Normals: {fileID: 2800000, guid: 1f2023a024b71e743a3aef74ab9e81fb, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: d108c3d364ee3a04bb15ea937ebfbc52, type: 3}
+    Roughness: {fileID: 2800000, guid: ddbea125428e36346bee86172fe587ee, type: 3}
+  - BaseColor: {fileID: 2800000, guid: 7137867fef79ef445a2e1c04a53eced0, type: 3}
+    Normals: {fileID: 2800000, guid: ccded005689b93b42a83a68026a243f4, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: d576989a203208c4492ef238b4e4a838, type: 3}
+    Roughness: {fileID: 2800000, guid: 9a1b51b52977b0a4f8148c1b6923b461, type: 3}
+  - BaseColor: {fileID: 2800000, guid: 8b9cad1763cc8f64aaa78e91759ac1a4, type: 3}
+    Normals: {fileID: 2800000, guid: 56e5bc490f479c2469d26d84cb59053d, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: d8473cdee2b53b848a17201d4aeb9e5a, type: 3}
+    Roughness: {fileID: 2800000, guid: 38b68538d3db2a443ad0221dfbaa6d56, type: 3}
+  - BaseColor: {fileID: 2800000, guid: df8c962f5a5d0a043831c91f5ff0c659, type: 3}
+    Normals: {fileID: 2800000, guid: 98ac7f3cea6d76844b893f1a1b0c6f06, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: a8a6e063fe161ea478425daf9b899198, type: 3}
+    Roughness: {fileID: 2800000, guid: cf64205a1e17ca74fa1c491034871837, type: 3}
+  - BaseColor: {fileID: 2800000, guid: 91ef2a1a2a5d1c743806fc50ed27b5a7, type: 3}
+    Normals: {fileID: 2800000, guid: cb49ea21b56394a43b99115f7b759f05, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: 08058f45d66bc2d4bbb2c65d22a47f6c, type: 3}
+    Roughness: {fileID: 2800000, guid: 96e9e50e590ce0648a1aa55ac2c76e6b, type: 3}
+  - BaseColor: {fileID: 2800000, guid: 049c19d51b729f74f8b10fac8d1a1f47, type: 3}
+    Normals: {fileID: 2800000, guid: e1fdd55c5a9295244a2a9b2ec76bee4e, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: 91af108d32f1de644932884d03d4ada0, type: 3}
+    Roughness: {fileID: 2800000, guid: 517afa1ceb6865c488b01cb40ecf069c, type: 3}
+  - BaseColor: {fileID: 2800000, guid: afd084fa2b87b8645b2b4952b3e3f4c2, type: 3}
+    Normals: {fileID: 2800000, guid: 2df0feea20337c244897eee59f0d5fdf, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: 8c7014fdd321dad4f8583d1815a400dc, type: 3}
+    Roughness: {fileID: 2800000, guid: 250b58c67899fb047bcb48e82de90b95, type: 3}
+  - BaseColor: {fileID: 2800000, guid: 26951dc41efe7ac489038ce7e7015c5b, type: 3}
+    Normals: {fileID: 2800000, guid: 88af43689bbcb1c4da4c6490a200bfe2, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: d0799431990e42a489d71084076b85fe, type: 3}
+    Roughness: {fileID: 2800000, guid: 20d156546e0eb9a4caf0955d9b6fab1e, type: 3}
+  - BaseColor: {fileID: 2800000, guid: af8c8027af1b0d64b9b9538a743f882d, type: 3}
+    Normals: {fileID: 2800000, guid: 094d7d29ba301bf4e8f9c1d12ff6e514, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: 509ae21aa707fe74c83d85b1a4db74af, type: 3}
+    Roughness: {fileID: 2800000, guid: 4220ce60112ba454f8e2edcfaf885700, type: 3}
+  - BaseColor: {fileID: 2800000, guid: 717f69887bedf2c4f85ca690fe63db31, type: 3}
+    Normals: {fileID: 2800000, guid: 80ded1ebe2065aa41ba6e705ab5d54c4, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: d7039d1a642688d4ba848692ac3484bc, type: 3}
+    Roughness: {fileID: 2800000, guid: cf3603fd19a17654286916170ea7e29d, type: 3}
+  - BaseColor: {fileID: 2800000, guid: 4c79e65b3f63e134883530a15d9329f4, type: 3}
+    Normals: {fileID: 2800000, guid: 2056db16a5ef9684ba20616f72486409, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: 093170f806f461c4cb0db6b3187d143d, type: 3}
+    Roughness: {fileID: 2800000, guid: c4a14a8b13f190949aa6c3cc15ec8a9b, type: 3}
+  - BaseColor: {fileID: 2800000, guid: 0530fb38607ea2e4d96d5e603f5274a5, type: 3}
+    Normals: {fileID: 2800000, guid: 543fb97f3392a1848b7f8386ad0a9b1b, type: 3}
+    AmbientOcclusion: {fileID: 0}
+    Roughness: {fileID: 2800000, guid: fb3fc4f0e4eb1b8479c6cf84323c3d07, type: 3}
+  - BaseColor: {fileID: 2800000, guid: 9052f70f45aae924b9e75d9e6064cd23, type: 3}
+    Normals: {fileID: 2800000, guid: a905354e84be91341a17acef2c0def16, type: 3}
+    AmbientOcclusion: {fileID: 2800000, guid: 898d4542ef0e43041ac740a005b8ac97, type: 3}
+    Roughness: {fileID: 2800000, guid: a5b076c49cf80b44ebcae39d73b7629a, type: 3}
+  CloudSize:
+    Min: 10
+    Max: 15
+  AtmosphereColors:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 1, g: 0.9019608, b: 0.6666667, a: 1}
+  - {r: 0.6784314, g: 0.8555961, b: 1, a: 1}
+  - {r: 0.759434, g: 1, b: 0.759434, a: 1}
+  - {r: 1, g: 0.827451, b: 0.9764706, a: 1}
+  PlanetMeshRenderer: {fileID: 785662970}
+  AtmosphereRenderer: {fileID: 1947381571}
 --- !u!114 &2019061299
 MonoBehaviour:
   m_ObjectHideFlags: 0

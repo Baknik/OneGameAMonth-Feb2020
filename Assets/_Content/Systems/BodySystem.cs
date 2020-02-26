@@ -7,6 +7,8 @@ public class BodySystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         Planet planet = null;
         Entities.ForEach((Planet p) =>
         {
@@ -24,7 +26,7 @@ public class BodySystem : ComponentSystem
                     chillMultiplier = 1f - Mathf.Clamp(effector.Effects[EffectType.CHILL][0].Magnitude, 0f, 1f);
                 }
             });
-            body.MeshRenderer.material.SetColor("_Tint", chillMultiplier == 1f ? Color.white : Color.cyan);
+            body.MeshRenderer.material.SetColor("_Tint", chillMultiplier == 1f ? Color.white : Color.blue);
 
             // Set velocity
             if (planet != null)

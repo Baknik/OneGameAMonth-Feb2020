@@ -170,6 +170,38 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TextureAAO:
+        m_Texture: {fileID: 2800000, guid: d108c3d364ee3a04bb15ea937ebfbc52, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureAColor:
+        m_Texture: {fileID: 2800000, guid: d4d90e8ff55b21f43ae51ceb5964a32f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureANormals:
+        m_Texture: {fileID: 2800000, guid: 1f2023a024b71e743a3aef74ab9e81fb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureARoughness:
+        m_Texture: {fileID: 2800000, guid: ddbea125428e36346bee86172fe587ee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureBAO:
+        m_Texture: {fileID: 2800000, guid: d108c3d364ee3a04bb15ea937ebfbc52, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureBColor:
+        m_Texture: {fileID: 2800000, guid: d4d90e8ff55b21f43ae51ceb5964a32f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureBNormals:
+        m_Texture: {fileID: 2800000, guid: 1f2023a024b71e743a3aef74ab9e81fb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureBRoughness:
+        m_Texture: {fileID: 2800000, guid: ddbea125428e36346bee86172fe587ee, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _ThicknessMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -337,6 +369,7 @@ Material:
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
+    - _Tint: {r: 1, g: 1, b: 1, a: 1}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _UVDetailsMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}

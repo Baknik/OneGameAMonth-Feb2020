@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     public float MaxHealth;
     public bool AlwaysShowHealth;
     public Damage ImpactDamage;
+    public FloatReference MoneyRewardPerHealth;
     public List<DamageResistance> DamageResistances;
 
     [Header("Runtime")]
@@ -21,10 +22,13 @@ public class Health : MonoBehaviour
     public Queue<CollisionData> Collisions = new Queue<CollisionData>();
     [HideInInspector]
     public Slider HealthBarSlider;
+    [HideInInspector]
+    public bool RewardGiven;
 
     void Start()
     {
         this.CurrentHealth = this.MaxHealth;
+        this.RewardGiven = false;
     }
 
     void OnCollisionEnter(Collision collision)

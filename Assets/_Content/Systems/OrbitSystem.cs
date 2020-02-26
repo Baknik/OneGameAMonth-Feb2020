@@ -7,6 +7,8 @@ public class OrbitSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         // Selection color
         Entities.ForEach((Orbit orbit, MeshRenderer renderer, Selectable selectable) =>
         {

@@ -32,7 +32,7 @@ Transform:
   m_LocalPosition: {x: 4, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
-  - {fileID: 502274974533168865}
+  - {fileID: 6043363367143074263}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -78,7 +78,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.23
+  m_Radius: 0.2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &502274974485623272
 MonoBehaviour:
@@ -92,11 +92,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa029bdb048d02040bc6c436ecfc123a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: Ram Satellite
-  OrbitingSpeed: 2
+  Name: Ram Sat
+  SlowOrbitingSpeed:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 2bbd85a7bf1eb2449948d13730260bd4, type: 2}
+  MediumOrbitingSpeed:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 528e0e3b1592ef04d9bcd687b1179bc9, type: 2}
+  FastOrbitingSpeed:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: ddc16b0dabd07b344b11082519d77dca, type: 2}
+  BaseStats: {fileID: 11400000, guid: a35c348a399917d46821f0459be9db97, type: 2}
+  StatIncreasePerLevel: {fileID: 11400000, guid: b02877e698d56724da2573ccae1dc7a2,
+    type: 2}
+  UpgradeCostPerLevel:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 5ab854df2f36499428a73fd258ddb386, type: 2}
+  MaxLevel:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 1f2096b8bb40efb4b9c2bcc065e278c1, type: 2}
   Description: Bam, bam! Smashes into asteroids in it's path, dealing massive damage
     to the asteroids but not too itself.
   Value: 0
+  Level: 0
+  OrbitingSpeed: 2
+  Stats: {fileID: 0}
 --- !u!114 &502274974485623273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,12 +139,17 @@ MonoBehaviour:
   ImpactDamage:
     Amount: 20
     Type: 0
+  MoneyRewardPerHealth:
+    _useConstant: 1
+    _constantValue: 0
+    _variable: {fileID: 0}
   DamageResistances:
   - Percentage: 100
     Type: 0
   CurrentHealth: 0
   HealthBarSlider: {fileID: 0}
---- !u!1 &502274974533168866
+  RewardGiven: 0
+--- !u!1 &7315269861934701508
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,45 +157,77 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 502274974533168865}
-  - component: {fileID: 502274974533168871}
-  - component: {fileID: 502274974533168864}
-  m_Layer: 11
-  m_Name: Mesh
+  - component: {fileID: 6043363367143074263}
+  m_Layer: 0
+  m_Name: ram_satellite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &502274974533168865
+--- !u!4 &6043363367143074263
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502274974533168866}
+  m_GameObject: {fileID: 7315269861934701508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
-  m_Children: []
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_Children:
+  - {fileID: 6895666971657253399}
   m_Father: {fileID: 502274974485623267}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &502274974533168871
+--- !u!1 &9044603430493319370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6895666971657253399}
+  - component: {fileID: 2628080078393856389}
+  - component: {fileID: 8757360582099663170}
+  - component: {fileID: 3353774766860386781}
+  m_Layer: 0
+  m_Name: Icosphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6895666971657253399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9044603430493319370}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6043363367143074263}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &2628080078393856389
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502274974533168866}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &502274974533168864
+  m_GameObject: {fileID: 9044603430493319370}
+  m_Mesh: {fileID: 289301614986012343, guid: 8ed0450e5f9524e47a4ea1130b740bd8, type: 3}
+--- !u!23 &8757360582099663170
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 502274974533168866}
+  m_GameObject: {fileID: 9044603430493319370}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -177,7 +239,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 621e901dcf5ebaf46bce29d18f67194c, type: 2}
+  - {fileID: 2100000, guid: 456774a1cd1cd0b4f851d2810fe8c46f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -198,3 +260,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3353774766860386781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9044603430493319370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafb70f876723004a9325e82ed265d86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Axis:
+    X: 1
+    Y: 1
+    Z: 1
+  Speed: 50

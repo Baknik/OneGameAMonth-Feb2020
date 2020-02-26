@@ -140,7 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DealsDamageOnImpact: 1
   ImpactDamage:
-    Amount: 10
+    Amount: 5
     Type: 0
 --- !u!114 &3522661856683997907
 MonoBehaviour:

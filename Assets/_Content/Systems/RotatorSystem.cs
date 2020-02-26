@@ -7,6 +7,8 @@ public class RotatorSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
+        InitEntityQueryCache(15);
+
         float deltaTime = Time.DeltaTime;
 
         Entities.ForEach((LocalRotator localRotator) =>
