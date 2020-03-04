@@ -215,6 +215,13 @@ public class UISystem : ComponentSystem
                     {
                         money.CurrentMoney -= upgradeCost;
                         selectedOrbit.Satellite.Level++;
+                        Entities.ForEach((Satellite sat, Health health) =>
+                        {
+                            if (sat == selectedOrbit.Satellite)
+                            {
+                                health.CurrentHealth = health.MaxHealth;
+                            }
+                        });
                     }
                     manageActionsUI.UpgradeButton.Clicked = false;
                 }

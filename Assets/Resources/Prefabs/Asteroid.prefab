@@ -73,6 +73,10 @@ MonoBehaviour:
     _useConstant: 0
     _constantValue: 0
     _variable: {fileID: 11400000, guid: 48ec2155bf94e484ebf19e8bab2ad37c, type: 2}
+  DeathExplosionPrefab:
+    _useConstant: 0
+    _constantValue: 
+    _variable: {fileID: 11400000, guid: e31e7bfba025f934199a11985e0d4498, type: 2}
   DamageResistances: []
   CurrentHealth: 0
   HealthBarSlider: {fileID: 0}

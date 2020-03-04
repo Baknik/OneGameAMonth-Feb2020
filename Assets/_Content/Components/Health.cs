@@ -11,6 +11,7 @@ public class Health : MonoBehaviour
     public bool AlwaysShowHealth;
     public Damage ImpactDamage;
     public FloatReference MoneyRewardPerHealth;
+    public StringReference DeathExplosionPrefab;
     public List<DamageResistance> DamageResistances;
 
     [Header("Runtime")]

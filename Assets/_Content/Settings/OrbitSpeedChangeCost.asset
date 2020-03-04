@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeveloperDescription:
     _value: 
-  _value: 5000
+  _value: 10000
   _readOnly: 1
   _raiseWarning: 1

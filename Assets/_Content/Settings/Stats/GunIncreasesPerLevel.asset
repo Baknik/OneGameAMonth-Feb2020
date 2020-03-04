@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2247c68ad4de81d4fa2483ac51083560, type: 3}
   m_Name: GunIncreasesPerLevel
   m_EditorClassIdentifier: 
-  PrimaryMagnitude: -0.09
+  PrimaryMagnitude: -0.07
   SecondaryMagnitude: 50
-  Reach: 0.5
+  Reach: 0.25
   DamageResistances:
   - Percentage: 15
     Type: 0

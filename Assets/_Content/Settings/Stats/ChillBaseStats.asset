@@ -16,5 +16,5 @@ MonoBehaviour:
   SecondaryMagnitude: 1
   Reach: 3
   DamageResistances:
-  - Percentage: 0
+  - Percentage: 20
     Type: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerInput))]
 public class InputCollector : MonoBehaviour
@@ -34,5 +35,15 @@ public class InputCollector : MonoBehaviour
         {
             this.SelectInput = true;
         }
+    }
+
+    //public void OnRestart(InputValue value)
+    //{
+    //    SceneManager.LoadScene("Play");
+    //}
+
+    public void OnQuit(InputValue value)
+    {
+        Application.Quit();
     }
 }

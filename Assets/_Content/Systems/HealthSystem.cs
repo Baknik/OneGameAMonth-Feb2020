@@ -16,6 +16,12 @@ public class HealthSystem : ComponentSystem
             money = m;
         });
 
+        Planet planet = null;
+        Entities.ForEach((Planet p) =>
+        {
+            planet = p;
+        });
+
         Entities.ForEach((Entity entity, Health health) =>
         {
             // Health bar setup
@@ -80,6 +86,9 @@ public class HealthSystem : ComponentSystem
 
                 PostUpdateCommands.DestroyEntity(entity);
                 GameObject.Destroy(health.gameObject);
+
+                // Death explosion
+                PrefabFactory.Instance.InstantiatePrefab(health.DeathExplosionPrefab.Value, health.transform.position, Quaternion.identity, null);
             }
 
             // Clamp
